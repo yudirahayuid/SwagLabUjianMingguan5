@@ -1,6 +1,8 @@
-Feature: User Melakukan Checkout
-  Scenario: User dapat melakukan checkout
-    When User melakukan checkout
+Feature: User Menambahkan Produk
+  Scenario: User dapat berhasil menambahkan produk yang diinginkan ke dalam keranjang
+    When User menambahkan produk ke keranjang
+    And User melihat melihat produk dalam keranjang
+    And User melakukan checkout
     And User menambahkan firstname yang valid
     And User menambahkan lastname yang valid
     And User menambahkan zip postal code yang valid

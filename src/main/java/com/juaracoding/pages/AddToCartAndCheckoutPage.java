@@ -1,24 +1,27 @@
 package com.juaracoding.pages;
 
 import com.juaracoding.drivers.DriverSingleleton;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CheckoutPage {
+public class AddToCartAndCheckoutPage {
 
     private WebDriver driver;
 
-    public CheckoutPage() {
+    public AddToCartAndCheckoutPage() {
         this.driver = DriverSingleleton.getDriver();
         PageFactory.initElements(driver, this);
     }
 
     //Locator Find Element menggunakan PageFactory
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
+    private WebElement btnAddToCart;
+
+    @FindBy(xpath = "//a[@class='shopping_cart_link']")
+    private WebElement linkShoppingCart;
+
     @FindBy(xpath = "//button[@id='checkout']")
     private WebElement btnCheckout;
 
@@ -37,11 +40,16 @@ public class CheckoutPage {
     @FindBy(id = "finish")
     private WebElement btnFinish;
 
-    @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
-    private WebElement checkoutComplete;
-
     @FindBy(xpath = "//h2[@class='complete-header']")
     private WebElement thankYouForYourOrder;
+
+    public void clickButtonAddToCart() {
+        btnAddToCart.click();
+    }
+
+    public void clickLinkShoppingCart() {
+        linkShoppingCart.click();
+    }
 
     public void clickBtnCheckout() {
         btnCheckout.click();
@@ -70,5 +78,4 @@ public class CheckoutPage {
     public String getTxtThankYouForYourOrder() {
         return thankYouForYourOrder.getText();
     }
-
 }
