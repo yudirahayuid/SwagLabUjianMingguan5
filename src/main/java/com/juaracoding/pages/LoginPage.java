@@ -19,6 +19,9 @@ public class LoginPage {
     @FindBy(xpath = "//input[@name='user-name']")
     private WebElement username;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private WebElement passwordIsRequired;
+
     @FindBy(xpath = "//input[@name='password']")
     private WebElement password;
 
@@ -48,6 +51,10 @@ public class LoginPage {
     }
 
     //return getText
+    public String getTxtPasswordIsRequired() {
+        return passwordIsRequired.getText();
+    }
+
     public String getTxtAppLogo() {
         return appLogo.getText();
     }
