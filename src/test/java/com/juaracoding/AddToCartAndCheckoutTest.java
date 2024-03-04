@@ -82,4 +82,40 @@ public class AddToCartAndCheckoutTest {
         extentTest.log(LogStatus.PASS,"User berhasil melakukan checkout");
     }
 
+    @And("User kembali melihat barang lain")
+    public void user_kembali_melihat_barang_lain() {
+        addToCartAndCheckoutPage.clickBtnBackToHome();
+        extentTest.log(LogStatus.PASS,"User kembali melihat barang lain");
+    }
+
+    @When("User menambahkan produk lagi ke keranjang")
+    public void user_menambahkan_produk_lagi_ke_keranjang() {
+        addToCartAndCheckoutPage.clickButtonAddToCart2();
+        extentTest.log(LogStatus.PASS,"User menambahkan produk lagi ke keranjang");
+    }
+
+    @And("User melihat melihat produk dalam keranjang ke 2x nya")
+    public void user_melihat_melihat_produk_dalam_keranjang_ke_2x_nya() {
+        addToCartAndCheckoutPage.clickLinkShoppingCart();
+        extentTest.log(LogStatus.PASS,"User melihat melihat produk dalam keranjang ke 2x nya");
+    }
+
+    @And("User melakukan checkout ke 2x nya")
+    public void user_melakukan_checkout_ke_2x_nya() {
+        addToCartAndCheckoutPage.clickBtnCheckout();
+        extentTest.log(LogStatus.PASS,"User melakukan checkout ke 2x nya");
+    }
+
+    @And("User klik tombol continue tanpa mengisi infomasi")
+    public void user_klik_tombol_continue_tanpa_mengisi_infomasi() {
+        addToCartAndCheckoutPage.clickBtnContinue();
+        extentTest.log(LogStatus.PASS,"User klik tombol continue tanpa mengisi infomasi");
+    }
+
+    @When("Sistem memberi tahu error jika tidak memberi informasi")
+    public void sistem_memberi_tahu_error_jika_tidak_memberi_informasi() {
+        Assert.assertEquals(addToCartAndCheckoutPage.getTxtErrorFirstNameIsRequired(),"Error: First Name is required");
+        extentTest.log(LogStatus.PASS,"Sistem memberi tahu error jika tidak memberi informasi");
+    }
+
 }

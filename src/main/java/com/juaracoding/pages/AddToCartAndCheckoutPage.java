@@ -43,6 +43,15 @@ public class AddToCartAndCheckoutPage {
     @FindBy(xpath = "//h2[@class='complete-header']")
     private WebElement thankYouForYourOrder;
 
+    @FindBy(xpath = "//button[@id='back-to-products']")
+    private WebElement btnBackToHime;
+
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-onesie']")
+    private WebElement btnAddToCart2;
+
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private WebElement errorFirstNameIsRequired;
+
     public void clickButtonAddToCart() {
         btnAddToCart.click();
     }
@@ -78,4 +87,18 @@ public class AddToCartAndCheckoutPage {
     public String getTxtThankYouForYourOrder() {
         return thankYouForYourOrder.getText();
     }
+
+    public void clickBtnBackToHome() {
+        btnBackToHime.click();
+    }
+
+    public void clickButtonAddToCart2() {
+        btnAddToCart2.click();
+    }
+
+    public String getTxtErrorFirstNameIsRequired() {
+        return errorFirstNameIsRequired.getText();
+    }
+
+
 }
